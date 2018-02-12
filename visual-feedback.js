@@ -11,6 +11,11 @@ var playingS = false;
 var playingD = false;
 var playingF = false;
 
+	var r = 0;
+	var g = 0;
+	var b = 0;
+
+
 function setup() {
   backgroundColor = color(255, 0, 255);
   textAlign(CENTER);
@@ -41,17 +46,23 @@ function setup() {
 }
 
 function draw() {
+
   if (playingA) {
-    background(0, 255, 255);
-  } else if (playingS) {
-    background(0, 0, 255);
-  }else if (playingD) {
-    background(255, 0, 0);
-  }else if (playingF) {
-    background(0, 255, 0);
-  }else {
-    background(255, 0, 255);
+    r = 200;
   }
+	if (playingS) {
+    g = 200;
+  }
+	if (playingD) {
+    b = 200;
+  }
+	if (playingF) {
+		b = 180;
+		g = 180;
+		r = 180
+  }
+	background(color(r,g,b));
+	fill(255,255,255);
   text('click here,\nthen press A/S/D/F\n keys to play', width / 2, 40);
 }
 
@@ -70,7 +81,7 @@ function keyPressed() {
   } else if (key == 'F') {
     osc = oscF;
 		playingF = true;
-  }
+	}
   if (osc) {
     osc.amp(0.5, 0.1);
     playing = true;
@@ -82,15 +93,21 @@ function keyReleased() {
   var osc;
   if (key == 'A') {
     osc = oscA;
+		r = 0;
 		playingA = false;
   } else if (key == 'S') {
     osc = oscS;
+		g = 0;
 		playingS = false;
   } else if (key == 'D') {
     osc = oscD;
+		b = 0;
 		playingD = false;
   } else if (key == 'F') {
     osc = oscF;
+		b = 0;
+		g = 0;
+		r = 0;
 		playingF = false;
   }
   if (osc) {
