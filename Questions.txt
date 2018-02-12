@@ -1,0 +1,12 @@
+What is an object?
+  An Object is a "container" of variables.
+How do you access a property of an object?
+  objectName.property
+What is the index of the first item in an array?
+  [0]
+What syntax can you use to get the third item in an array?
+  [2]
+How do you use a variable and a loop to get every item in an array?
+  for(var i = 0; i < array.length; i ++) {
+    array[i]
+  }
